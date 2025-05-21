@@ -1,5 +1,7 @@
 package com.example.tltt_application.Fragment;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,13 +14,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.tltt_application.View.ChangePasswordActivity;
+import com.example.tltt_application.View.HistoryActivity;
 import com.example.tltt_application.View.LoginActivity;
 import com.example.tltt_application.View.MyAccountActivity;
 import com.example.tltt_application.databinding.FragmentAccountBinding;
+import com.example.tltt_application.objects.User;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.gson.Gson;
 
 
 public class AccountFragment extends Fragment {
     private FragmentAccountBinding binding;
+    private FirebaseFirestore db;
 
     public AccountFragment() {}
     @Override
@@ -31,6 +38,26 @@ public class AccountFragment extends Fragment {
             name = bundle.getString("name", "Người dùng");
         }
         binding.accountName.setText(name);
+
+        db = FirebaseFirestore.getInstance();
+
+        // Lấy userId từ userJson trong SharedPreferences
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        String userJson = sharedPreferences.getString("userJson", "");
+        String userId;
+        if (!userJson.isEmpty()) {
+            Gson gson = new Gson();
+            User user = gson.fromJson(userJson, User.class);
+            userId = user != null ? user.getPhone() : null;
+        } else {
+            userId = null;
+        }
+
+        binding.carHistory.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), HistoryActivity.class);
+            intent.putExtra("userId", userId);
+            startActivity(intent);
+        });
 
         // Xử lý đăng xuất
         logout();

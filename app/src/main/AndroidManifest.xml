@@ -15,6 +15,9 @@
         android:theme="@style/Theme.TLTT_Application"
         tools:targetApi="31">
         <activity
+            android:name=".View.HistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.BookingDetailActivity"
             android:exported="false" />
         <activity

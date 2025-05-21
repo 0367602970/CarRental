@@ -51,6 +51,12 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
             intent.putExtra("booking", booking);
             context.startActivity(intent);
         });
+
+    }
+
+    public void updateBookings(List<Booking> newBookings) {
+        this.bookingList = newBookings;
+        notifyDataSetChanged();
     }
 
     @Override
