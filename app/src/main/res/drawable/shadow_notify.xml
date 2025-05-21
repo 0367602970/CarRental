@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bóng -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#55000000"
+                android:endColor="@android:color/transparent"
+                android:angle="95"/> <!-- Hướng gradient -->
+
+            <padding
+                android:left="0dp"
+                android:top="0dp"
+                android:right="0dp"
+                android:bottom="16dp" />
+        </shape>
+    </item>
+    <!-- Nền -->
+    <item android:top="0dp" android:left="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white"/> <!-- Màu nền -->
+
+        </shape>
+    </item>
+</layer-list>

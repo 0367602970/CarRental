@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AppName" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Các thuộc tính khác nếu có -->
+    </style>
+</resources>

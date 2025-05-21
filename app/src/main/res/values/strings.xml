@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">TLTT_Application</string>
+    <string name="input_hint_phone">Nhập số điện thoại</string>
+    <string name="input_hint_password">Nhập mật khẩu</string>
+    <string name="input_hint_confirm_pass">Nhập lại mật khẩu</string>
+    <string name="input_hint_name">Nhập họ và tên</string>
+    <string name="text_login_welcome">Hi,\nPlease Login</string>
+    <string name="text_signin_welcome">Create\nAccount</string>
+    <string name="label_hint_phone">Số điện thoại</string>
+    <string name="label_hint_password">Mật khẩu</string>
+    <string name="label_hint_confirm_password">Nhập lại mật khẩu</string>
+    <string name="label_hint_name">Họ và tên</string>
+    <string name="btn_login">Đăng nhập</string>
+    <string name="btn_signin">Đăng kí</string>
+    <string name="Or">Hoặc</string>
+    <string name="Google">Google</string>
+    <string name="Facebook">Facebook</string>
+    <string name="Tab">Thuê xe</string>
+    <string name="city">Tỉnh/Thành phố</string>
+    <string name="date1">Ngày nhận xe</string>
+    <string name="date2">Ngày trả xe</string>
+    <string name="none_notify">Không có thông báo nào</string>
+    <string name="trip">Chuyến của tôi</string>
+    <string name="none_trip">Bạn chưa có chuyến đi nào</string>
+    <string name="history">Xem lịch sử</string>
+    <string name="car_rental">Thuê xe</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

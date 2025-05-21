@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "694116919855",
+    "project_id": "tlt-application-a270b",
+    "storage_bucket": "tlt-application-a270b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694116919855:android:e401f279f5ea08720af4da",
+        "android_client_info": {
+          "package_name": "com.example.tltt_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJQAjklt7NGUFRBjntRzBZbvtlsfXrJbM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

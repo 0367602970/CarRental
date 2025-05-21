@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.LoginActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Login Header"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_header" />
+
+                <TextView
+                    android:id="@+id/txtPlsLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="70dp"
+                    android:paddingTop="60dp"
+                    android:text="Create\nAccount"
+                    android:textSize="30sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"/>
+
+            </RelativeLayout>
+
+            <!-- Số điện thoại -->
+            <TextView
+                android:id="@+id/textPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="36dp"
+                android:layout_marginTop="10dp"
+                android:text="Số điện thoại"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_bg"
+                android:orientation="horizontal"
+                android:paddingStart="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/arcticons_phone"
+                    android:contentDescription="Phone Icon"
+                    android:layout_gravity="center_vertical"/>
+
+                <EditText
+                    android:id="@+id/editPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="Nhập số điện thoại"
+                    android:inputType="phone"
+                    android:paddingStart="10dp" />
+            </LinearLayout>
+
+            <!-- Họ và tên -->
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="36dp"
+                android:layout_marginTop="15dp"
+                android:text="Họ và tên"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_bg"
+                android:orientation="horizontal"
+                android:paddingStart="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/iwwa_user"
+                    android:contentDescription="User Icon"
+                    android:layout_gravity="center_vertical"/>
+
+                <EditText
+                    android:id="@+id/editName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="Nhập họ và tên"
+                    android:inputType="text"
+                    android:paddingStart="10dp" />
+            </LinearLayout>
+
+
+            <!-- Mật khẩu -->
+            <TextView
+                android:id="@+id/textPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="36dp"
+                android:layout_marginTop="15dp"
+                android:text="Mật khẩu"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_bg"
+                android:orientation="horizontal"
+                android:paddingStart="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/arcticons_password"
+                    android:contentDescription="Password Icon"
+                    android:layout_gravity="center_vertical"/>
+
+                <EditText
+                    android:id="@+id/editPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="Nhập mật khẩu"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp" />
+            </LinearLayout>
+
+            <!-- Nhập lại mật khẩu -->
+            <TextView
+                android:id="@+id/textConfirmPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="36dp"
+                android:layout_marginTop="15dp"
+                android:text="Nhập lại mật khẩu"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_bg"
+                android:orientation="horizontal"
+                android:paddingStart="10dp">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/arcticons_password"
+                    android:contentDescription="Password Icon"
+                    android:layout_gravity="center_vertical"/>
+
+                <EditText
+                    android:id="@+id/editConfirmPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:gravity="center_vertical"
+                    android:hint="Nhập lại mật khẩu"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp">
+
+                <Button
+                    android:id="@+id/btnCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/btn_cancel"
+                    android:text="Quay lại"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:id="@+id/btnSignup"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/app_color_btn_bg"
+                    android:text="Đăng ký" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
