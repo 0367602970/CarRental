@@ -33,7 +33,11 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
     @Override
     public void onBindViewHolder(@NonNull BookingViewHolder holder, int position) {
         Booking booking = bookingList.get(position);
-        holder.binding.dates.setText(String.format("12h00 T7, %s - 12h00 T7, %s", booking.getPickupDate(), booking.getReturnDate()));
+        holder.binding.dates.setText(String.format("%s, %s - %s, %s",
+                booking.getPickupTime() != null ? booking.getPickupTime() : "N/A",
+                booking.getPickupDate() != null ? booking.getPickupDate() : "N/A",
+                booking.getReturnTime() != null ? booking.getReturnTime() : "N/A",
+                booking.getReturnDate() != null ? booking.getReturnDate() : "N/A"));
         holder.binding.status.setText(booking.getStatus() == 1 ? "Đang thuê" : "Hoàn thành");
         holder.binding.status.setTextColor(booking.getStatus() == 1 ?
                 context.getResources().getColor(android.R.color.holo_green_dark) :

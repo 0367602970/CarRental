@@ -23,12 +23,16 @@
             android:background="@drawable/rounded_image_background" />
 
         <!-- Giá thuê (chồng lên hình ảnh xe) -->
+
+        <!-- Tên xe -->
+
         <TextView
             android:id="@+id/car_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/car_image"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-13dp"
             android:background="@drawable/rounded_price_background"
             android:paddingStart="12dp"
             android:paddingTop="4dp"
@@ -39,7 +43,6 @@
             android:textSize="14sp"
             android:textStyle="bold" />
 
-        <!-- Tên xe -->
         <TextView
             android:id="@+id/car_name"
             android:layout_width="wrap_content"
@@ -72,7 +75,8 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/home_selector" />
+                    android:layout_marginStart="-70dp"
+                    android:src="@drawable/car_icon" />
 
                 <TextView
                     android:id="@+id/car_kind"
@@ -95,7 +99,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/home_selector" />
+                    android:src="@drawable/battery_icon" />
 
                 <TextView
                     android:id="@+id/car_tidy"
@@ -104,6 +108,7 @@
                     android:layout_marginStart="4dp"
                     android:text="210km(NEDC)"
                     android:textColor="@android:color/black"
+                    android:layout_marginEnd="-30dp"
                     android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
@@ -127,7 +132,8 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/home_selector" />
+                    android:layout_marginStart="-78dp"
+                    android:src="@drawable/seat_icon" />
 
                 <TextView
                     android:id="@+id/car_seats"
@@ -150,7 +156,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/home_selector" />
+                    android:src="@drawable/baggage_icon" />
 
                 <TextView
                     android:id="@+id/car_trunk"
@@ -159,6 +165,7 @@
                     android:layout_marginStart="4dp"
                     android:text="284L"
                     android:textColor="@android:color/black"
+                    android:layout_marginEnd="30dp"
                     android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>

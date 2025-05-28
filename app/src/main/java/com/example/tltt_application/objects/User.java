@@ -11,6 +11,7 @@ public class User implements Serializable{
     private String confirmPassword;
     private String gender;
     private String GPLX;
+    private String ngayCapGPLX;
     private String birth;
     public User() {
     }
@@ -75,6 +76,14 @@ public class User implements Serializable{
 
     public void setGPLX(String GPLX) {
         this.GPLX = GPLX;
+    }
+
+    public String getNgayCapGPLX() {
+        return ngayCapGPLX;
+    }
+
+    public void setNgayCapGPLX(String ngayCapGPLX) {
+        this.ngayCapGPLX = ngayCapGPLX;
     }
 
     public String getBirth() {

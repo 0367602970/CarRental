@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_dialog_bg"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vui lòng thêm giấy phép lái xe của bạn"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/edGplx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập số GPLX (12 chữ số)"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/edNgayCap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ngày cấp GPLX (dd/MM/yyyy)"
+        android:inputType="date"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:id="@+id/btnSaveGplx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:layout_marginTop="20dp" />
+</LinearLayout>

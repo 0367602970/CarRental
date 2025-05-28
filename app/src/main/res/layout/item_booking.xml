@@ -3,34 +3,40 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:radius="12dp"
     android:background="@android:color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="12dp"
+        android:gravity="center_vertical">
 
         <!-- Ảnh xe -->
         <ImageView
             android:id="@+id/carImage"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="80dp"
             android:scaleType="centerCrop"
-            android:contentDescription="Car Image" />
+            android:contentDescription="Car Image"
+            android:background="@drawable/image_bg"
+            android:clipToOutline="true" />
 
-        <!-- Thông tin -->
+        <!-- Thông tin xe -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_marginStart="8dp">
+            android:layout_marginStart="12dp">
 
             <TextView
                 android:id="@+id/dates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="01/01/2025 - 03/01/2025"
                 android:textSize="14sp"
                 android:textColor="@android:color/black" />
 
@@ -38,15 +44,17 @@
                 android:id="@+id/status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:text="Đã xác nhận"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                android:textColor="@android:color/holo_green_dark" />
+                android:textColor="@android:color/holo_green_dark"
+                android:layout_marginTop="4dp" />
         </LinearLayout>
 
-        <!-- Giá và nút -->
+        <!-- Giá và nút chi tiết -->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center">
 
@@ -54,18 +62,22 @@
                 android:id="@+id/totalPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="1.200.000đ"
                 android:textSize="16sp"
-                android:textColor="@android:color/black" />
-
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="6dp" />
 
             <Button
                 android:id="@+id/btnDetail"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="32dp"
                 android:text="Chi tiết"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:background="@drawable/app_color_btn_bg"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -136,8 +137,16 @@ public class ConfirmActivity extends AppCompatActivity {
         Button confirmButton = binding.confirmButton;
         double finalTotalPrice = totalPrice;
         confirmButton.setOnClickListener(v -> {
-            saveBookingToFirestore(pickupDate, pickupTime, returnDate, returnTime, city, car, user, finalTotalPrice);
+            if (user.getGPLX() == null || user.getGPLX().isEmpty()) {
+                showGplxInputDialog(user, pickupDate, pickupTime, returnDate, returnTime, city, car, finalTotalPrice);
+            } else {
+                saveBookingToFirestore(pickupDate, pickupTime, returnDate, returnTime, city, car, user, finalTotalPrice);
+            }
         });
+
+
+
+
 
         // Chạy kiểm tra định kỳ
         new Handler().postDelayed(new Runnable() {
@@ -191,6 +200,66 @@ public class ConfirmActivity extends AppCompatActivity {
                     Toast.makeText(this, "Lỗi khi đặt xe: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
     }
+
+    private void showGplxInputDialog(User user, String pickupDate, String pickupTime, String returnDate, String returnTime, String city, Car car, double finalTotalPrice) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_input_gplx, null);
+        builder.setView(view);
+
+        EditText edGplx = view.findViewById(R.id.edGplx);
+        EditText edNgayCap = view.findViewById(R.id.edNgayCap);
+        Button btnSave = view.findViewById(R.id.btnSaveGplx);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        btnSave.setOnClickListener(v -> {
+            String gplx = edGplx.getText().toString().trim();
+            String ngayCap = edNgayCap.getText().toString().trim();
+
+            if (!gplx.matches("^\\d{12}$")) {
+                Toast.makeText(this, "GPLX phải đúng 12 số", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            try {
+                Date dateInput = sdf.parse(ngayCap);
+                Date today = new Date();
+
+                // Check ngày cấp phải trước ngày hiện tại
+                if (!dateInput.before(today)) {
+                    Toast.makeText(this, "Ngày cấp GPLX phải trước ngày hiện tại", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Lưu vào Firestore
+                db.collection("users").document(user.getPhone())
+                        .update("GPLX", gplx, "ngayCapGPLX", ngayCap)
+                        .addOnSuccessListener(unused -> {
+                            user.setGPLX(gplx);
+                            user.setNgayCapGPLX(ngayCap);
+                            dialog.dismiss();
+
+                            // Lưu lại vào SharedPreferences
+                            SharedPreferences.Editor editor = getSharedPreferences("LoginPrefs", MODE_PRIVATE).edit();
+                            String updatedJson = new Gson().toJson(user);
+                            editor.putString("userJson", updatedJson);
+                            editor.apply();
+
+                            // Tiếp tục lưu booking
+                            saveBookingToFirestore(pickupDate, pickupTime, returnDate, returnTime, city, car, user, finalTotalPrice);
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(this, "Lỗi lưu GPLX: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        });
+
+            } catch (Exception e) {
+                Toast.makeText(this, "Ngày không hợp lệ, định dạng phải là dd/MM/yyyy", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     private void showCustomSuccessDialog() {
         // Tạo AlertDialog.Builder
