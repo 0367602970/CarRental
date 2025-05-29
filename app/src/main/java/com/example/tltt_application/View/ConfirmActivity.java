@@ -144,10 +144,6 @@ public class ConfirmActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
         // Chạy kiểm tra định kỳ
         new Handler().postDelayed(new Runnable() {
             @Override

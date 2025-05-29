@@ -30,19 +30,7 @@ public class CarDetailActivity extends AppCompatActivity {
         binding = ActivityCarDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Sửa ở đây: khởi tạo ViewModel đúng cách trong Java
         viewModel = new ViewModelProvider(this).get(CarDetailViewModel.class);
-
-        // Lấy User từ SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
-        String userJson = sharedPreferences.getString("userJson", "");
-        User user;
-        if (!userJson.isEmpty()) {
-            user = new Gson().fromJson(userJson, User.class);
-        } else {
-            user = new User("Người dùng", "", "", "", "", "", "");
-        }
-        viewModel.setUser(user);
 
         // Lấy dữ liệu từ Intent
         Intent intent = getIntent();
@@ -91,7 +79,6 @@ public class CarDetailActivity extends AppCompatActivity {
             }
         });
 
-        // Đặt nút đặt xe
         binding.bookButton.setOnClickListener(v -> {
             Intent confirmIntent = new Intent(CarDetailActivity.this, ConfirmActivity.class);
             confirmIntent.putExtra("pickupDate", viewModel.getPickupDate());
@@ -100,7 +87,6 @@ public class CarDetailActivity extends AppCompatActivity {
             confirmIntent.putExtra("returnTime", viewModel.getReturnTime());
             confirmIntent.putExtra("city", viewModel.getCity());
             confirmIntent.putExtra("car", viewModel.getCar().getValue());
-            confirmIntent.putExtra("user", viewModel.getUser().getValue());
             startActivity(confirmIntent);
         });
     }

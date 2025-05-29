@@ -29,11 +29,10 @@ public class HomeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Khởi tạo View Binding cho Fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
         // Nhận name từ Bundle
-        String name = "Người dùng"; // Giá trị mặc định
+        String name = "Người dùng";
         Bundle bundle = getArguments();
         if (bundle != null) {
             name = bundle.getString("name", "Người dùng");
@@ -130,14 +129,14 @@ public class HomeFragment extends Fragment {
     }
 
     private void setupDateReturn(TextView textView, ImageView imageView) {
-        // Lấy ngày tháng năm hiện tại và hiển thị mặc định
+        // Lấy ngày tháng năm hiện tại và thêm 2 ngày vào ngày hiện tại
+        calendar.add(Calendar.DAY_OF_MONTH, 2);
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH) + 2;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        // Định dạng ngày hiện tại
         String currentDate = day + "/" + (month + 1) + "/" + year;
-        textView.setText(currentDate); // Đặt ngày hiện tại làm mặc định
+        textView.setText(currentDate);
 
         // Listener để mở DatePickerDialog khi bấm vào TextView hoặc ImageView
         View.OnClickListener dateClickListener = v -> {
@@ -154,6 +153,7 @@ public class HomeFragment extends Fragment {
         textView.setOnClickListener(dateClickListener);
         imageView.setOnClickListener(dateClickListener);
     }
+
 
     private void setupSearchButton() {
         // Xử lý sự kiện bấm nút "Tìm xe" trong tab_date

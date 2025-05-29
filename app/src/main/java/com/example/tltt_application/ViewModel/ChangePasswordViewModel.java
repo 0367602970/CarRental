@@ -60,8 +60,8 @@ public class ChangePasswordViewModel extends ViewModel {
             return;
         }
 
-        if (newPassword.length() < 6) {
-            messageLiveData.setValue("Mật khẩu mới phải từ 6 ký tự trở lên");
+        if (newPassword.length() <= 9) {
+            messageLiveData.setValue("Mật khẩu mới phải từ 9 ký tự trở lên");
             return;
         }
 
